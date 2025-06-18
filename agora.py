@@ -1,4 +1,0 @@
-obj = {
-}
-
-print(len(obj))
