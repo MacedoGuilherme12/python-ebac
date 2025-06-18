@@ -1,0 +1,4 @@
+obj = {
+}
+
+print(len(obj))
