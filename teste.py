@@ -13,11 +13,13 @@ def adicionar_produto(produto, quantidade, produtos, preco):
         "Quantidade" : quantidade,
         "Preço" : preco
     }
+    ordenado = dict(sorted(produtos.items()))
+    produtos = ordenado
 def listar_produtos(produtos):
-    if(len(produtos) == 0):
-        print("Estoque facil")
+    if not produtos:
+        print("Estoque vazio")
         return
-    for produto in produtos:
+    for produto in sorted(produtos.keys()):
         print(f"Produto: {produto} Quantidade: {produtos[produto]["Quantidade"]} Preço: {produtos[produto]["Preço"]}  ")
 
 def remover_produto(produto, produtos):
@@ -46,7 +48,7 @@ def main():
         print("--")
         match opcao:
             case 1:
-                produto = input("Qual Produto deseja adicionar? ")
+                produto = input("Qual Produto deseja adicionar? ").lower()
                 quantidade = int(input("Qual a quantidade? "))
                 preco = int(input("Qual o preço? "))
 
@@ -65,5 +67,6 @@ def main():
                 produto_quantidade(produtos, atual_produto, quantidade)
             case 5:
                 condicao = False
+                print("Saindo do programa.")
 main()
     
